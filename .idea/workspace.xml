@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83b44216-8f36-4f4f-a3c2-13a558aee0dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TraceToExcel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TraceToExcel.java" afterDir="false" />
-    </list>
+    <list default="true" id="83b44216-8f36-4f4f-a3c2-13a558aee0dc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +70,7 @@
       <workItem from="1589809757634" duration="15170000" />
       <workItem from="1589881261221" duration="1199000" />
       <workItem from="1589913174704" duration="734000" />
-      <workItem from="1590074373193" duration="6658000" />
+      <workItem from="1590074373193" duration="6907000" />
     </task>
     <servers />
   </component>
