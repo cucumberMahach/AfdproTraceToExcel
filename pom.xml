@@ -6,7 +6,7 @@
 
     <groupId>ru.alexmah</groupId>
     <artifactId>traceToExcel</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 
     <dependencies>
         <dependency>
@@ -40,6 +40,14 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
