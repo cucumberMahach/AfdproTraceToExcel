@@ -1,6 +1,8 @@
 # AfdproTraceToExcel
 Утилита конвертации файлов трассировки из AFDPRO в Excel
+
 ![AfdproTraceToExcel result](/assets/result_pic.png "AfdproTraceToExcel result")
+
 А также умеет печатать дисассемблированный код
 
 ![AfdproTraceToExcel result2](/assets/result_pic2.png "AfdproTraceToExcel result2")
