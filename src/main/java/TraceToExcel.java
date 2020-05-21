@@ -12,9 +12,9 @@ public class TraceToExcel {
             System.out.println("Автор: Александр Махоткин");
             System.out.println();
             System.out.println("Arguments:");
-            System.out.println("\t\t-one [FILE]");
-            System.out.println("\t\t-link [FILE,FILE,...]");
-            System.out.println("\t\t-pd [FILE]");
+            System.out.println("\t\t-one FILE");
+            System.out.println("\t\t-link FILE,FILE,...");
+            System.out.println("\t\t-pd FILE");
             return;
         }
 
@@ -32,6 +32,7 @@ public class TraceToExcel {
                 generateExcel(fileDir + nameWithoutExt + ".xlsx", array);
             }catch(Exception ex){
                 System.out.println(ex);
+                System.exit(-1);
             }
 
         }else if (args[0].equals("-link")){
@@ -64,7 +65,7 @@ public class TraceToExcel {
 
         try {
             System.out.println("Генерация xlsx файла...");
-            generateExcel("trass.xlsx", arrayAll);
+            generateExcel("trace.xlsx", arrayAll);
         }catch(Exception ex){
             System.out.println(ex);
             System.exit(-1);
@@ -78,7 +79,8 @@ public class TraceToExcel {
             commands = parsePD(file);
             generateExcelPD("pd.xlsx", commands);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            System.out.println(ex);
+            System.exit(-1);
         }
     }
 
