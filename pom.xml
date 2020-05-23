@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.alexmah</groupId>
+    <groupId>ru.com</groupId>
     <artifactId>traceToExcel</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
 
     <dependencies>
         <dependency>

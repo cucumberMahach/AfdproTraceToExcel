@@ -9,7 +9,6 @@ public class TraceToExcel {
         if (args.length == 0){
             System.out.println("Утилита для конвертации файлов трассировки из AFDPRO в Excel");
             System.out.println("+ вывод адреса, кода команды, мнемоники в Excel");
-            System.out.println("Автор: Александр Махоткин");
             System.out.println();
             System.out.println("Arguments:");
             System.out.println("\t\t-one FILE");
