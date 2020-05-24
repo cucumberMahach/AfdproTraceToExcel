@@ -27,7 +27,9 @@ public class TraceToExcel {
             if (dotPos != -1)
                 nameWithoutExt = inputFile.getName().substring(0, dotPos);
             try {
-                ArrayList<CommandState> array = parseTrace(inputFile);
+                ArrayList<CommandState> array = parseTrace_noShift(inputFile);
+                shift(array);
+                completeMemAddresses(array);
                 generateExcel(fileDir + nameWithoutExt + ".xlsx", array);
             }catch(Exception ex){
                 System.out.println(ex);
@@ -61,6 +63,8 @@ public class TraceToExcel {
 
         System.out.println("Выполняется сдвиг...");
         shift(arrayAll);
+        System.out.println("Выполняется запись адресов...");
+        completeMemAddresses(arrayAll);
 
         try {
             System.out.println("Генерация xlsx файла...");
@@ -181,6 +185,26 @@ public class TraceToExcel {
         book.close();
     }
 
+    public static void completeMemAddresses(ArrayList<CommandState> states){
+        for (int i = 0; i < states.size(); i++){
+            CommandState st = states.get(i);
+            if (st.memAddr == null)
+                continue;
+            String regAddr = st.memAddr.toLowerCase();
+            switch (regAddr){
+                case "bx":
+                    st.memAddr = st.bx;
+                    break;
+                case "di":
+                    st.memAddr = st.di;
+                    break;
+                case "si":
+                    st.memAddr = st.si;
+                    break;
+            }
+        }
+    }
+
     public static void shift(ArrayList<CommandState> states){
         CommandState lastState = new CommandState();
         states.add(lastState);
@@ -225,12 +249,16 @@ public class TraceToExcel {
 
             comState.ax = line.substring(44, 44 + 4);
 
+            comState.si = line.substring(53, 53 + 4);
+
             comState.stackState = line.substring(76, 76 + 4);
 
 
             line = br.readLine();
 
             comState.bx = line.substring(44, 44 + 4);
+
+            comState.di = line.substring(53, 53 + 4);
 
             line = br.readLine();
 
@@ -277,7 +305,7 @@ public class TraceToExcel {
         br.close();
         return states;
     }
-
+/*
     public static ArrayList<CommandState> parseTrace(File inputFile) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(inputFile));
         br.readLine();
@@ -359,7 +387,7 @@ public class TraceToExcel {
         br.close();
         return states;
     }
-
+*/
     public static void generateExcel(String file, ArrayList<CommandState> commandStates) throws IOException {
         Workbook book = new XSSFWorkbook();
         Sheet sheet = book.createSheet("Trace");
@@ -503,7 +531,7 @@ public class TraceToExcel {
 
 class CommandState{
     String commandAddr, command, memAddr, arguments;
-    String ax, bx, cx, dx, ip;
+    String ax, bx, cx, dx, ip, di, si;
     int Fof, Fdf, Fif, Fsf, Fzf, Faf, Fpf, Fcf;
     String stackState;
 }
